@@ -19,3 +19,21 @@ function showCategory(category) {
             product.style.display = 'none';
         }
     });
+	 // Scroll to featured section
+    document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Cart Functions
+function addToCart(id, price, name) {
+    const existingItem = cart.find(item => item.id === id);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: id,
+            name: name,
+            price: price,
+            quantity: 1
+        });
+    }
